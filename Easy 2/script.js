@@ -1,23 +1,29 @@
 let nums = [1,2,3,4,5,6,7,8,9,10];
-let nonPrimeArray = []
 let primeArray = []
 
 
 function prime(nums) {
     for (let i = 0; i < nums.length; i++) {
-        for(let k = 2; k < nums[i]; k++){
-            if(nums[i] % k === 0) {
-                nonPrimeArray.push(nums[i]);}
-            // } else {
-            //     primeArray.push(nums[i]);
-            // }
+        let num = nums[i];
+        let prime = true;
 
+        if (num === 1){
+            prime = false;
+        } else if (num === 2){
+            prime = true;
+        }else {
+            for(var x = 2; x < num; x++) {
+                if(num % x === 0) {
+                    prime = false;
+                }
+            }
         }
-
+        if (prime) {
+            primeArray.push(nums[i]);
+        }
     }
 
 }
 
 prime(nums);
-console.log(nonPrimeArray)
 console.log(primeArray)
